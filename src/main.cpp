@@ -5,6 +5,9 @@
 #include "exceptions.h"
 #include "produit.h"
 
+// on ne sait pas si ca doit rester là
+#include <iostream>
+
 using namespace std;
 
 int main() {
