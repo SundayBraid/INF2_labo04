@@ -79,10 +79,10 @@ int main() {
               << c.contient(p2) << endl
               << noboolalpha;
          {  
-            < à compléter 1 >
+            // < à compléter 1 >
             // On parcourt la collection en majorant le prix de chacun
             // des produits de 10%
-            c.parcourir(< à compléter 2 >);
+            c.parcourir(1 /*A COMPLETER 2*/);
             cout << c << " (taille = " << c.taille() << ")" << endl;      
          }
          c.vider();
