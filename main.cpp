@@ -1,12 +1,25 @@
+/*
+ -----------------------------------------------------------------------------------
+ Laboratoire : 04
+ Fichier     : main.cpp
+ Auteur(s)   : Thibaud Franchetti, Sacha Perdrizat
+ Date        : 08.04.2019
+
+ But         : Teste la classe générique Collection et la classe Produit
+
+ Remarque(s) :
+
+ Compilateur : GCC-g++ 7.3.0
+               GCC-g++ 8.2.0
+ -----------------------------------------------------------------------------------
+*/
+
 #include <cstdlib>
 #include <list>
 #include <vector>
 #include "collection_g.h"
 #include "exceptions.h"
 #include "produit.h"
-
-// on ne sait pas si ca doit rester là
-#include <iostream>
 
 using namespace std;
 

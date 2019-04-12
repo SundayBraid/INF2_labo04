@@ -1,3 +1,21 @@
+/*
+ -----------------------------------------------------------------------------------
+ Laboratoire : 04
+ Fichier     : produit.cpp
+ Auteur(s)   : Thibaud Franchetti, Sacha Perdrizat
+ Date        : 08.04.2019
+
+ But         : Implémente la classe Produit déclarée dans produit.h
+
+ Remarque(s) : - Il aurait été préférable d'initialiser la donnée membre privée 'no'
+                 après le possible lancement d'une exception, malheureusement
+                 ceci est impossible.
+
+ Compilateur : GCC-g++ 7.3.0
+               GCC-g++ 8.2.0
+ -----------------------------------------------------------------------------------
+*/
+
 #include "produit.h"
 #include "exceptions.h"
 #include <iomanip>
@@ -12,13 +30,13 @@ Produit::Produit(unsigned no, const string& libelle, double prix) : no(no) {
                            "le prix doit etre >= 5 cts !");
    }
    (unsigned&) this->no = no;
-   (string&) this->libelle = libelle;
+   this->libelle = libelle;
    this->prix = prix;
 }
 
 Produit&  Produit::operator=(const Produit& produit) {
    (unsigned&) this->no = produit.no;
-   (string&) this->libelle = produit.libelle;
+   this->libelle = produit.libelle;
    this->prix = produit.prix;
    return *this;
 }
@@ -41,7 +59,6 @@ ostream& operator<<(ostream& os, const Produit& produit) {
              << setprecision(6) << ')';
 }
 
-// A voir si on compare uniquement par numero ou plus
 bool operator==(const Produit& lhs, const Produit& rhs) {
    return lhs.no == rhs.no;
 }
