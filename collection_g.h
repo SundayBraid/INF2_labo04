@@ -45,7 +45,9 @@ T& Collection<T, CONTENEUR>::get(size_t pos) {
                         "n doit etre strictement plus petit que collection.size()");
    }
    auto i = data.begin();
-   for(size_t c = 0; c < pos; ++c, ++i);
+   for(size_t c = 0; c < pos; ++c){
+      ++i
+   }
    return *i;
 }
 

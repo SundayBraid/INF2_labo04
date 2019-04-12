@@ -11,12 +11,12 @@ Produit::Produit(unsigned no, const string& libelle, double prix) : no(no) {
       throw PrixNonValide("Erreur dans Produit::Produit :\n"
                            "le prix doit etre >= 5 cts !");
    }
-   (unsigned&) this->no = no;
+   //(unsigned&) this->no = no;
    (string&) this->libelle = libelle;
    this->prix = prix;
 }
 
-Produit&  Produit::operator=(const Produit& produit) {
+Produit& Produit::operator=(const Produit& produit) {
    (unsigned&) this->no = produit.no;
    (string&) this->libelle = produit.libelle;
    this->prix = produit.prix;
