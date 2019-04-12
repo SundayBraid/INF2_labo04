@@ -16,6 +16,7 @@ class Produit {
       const unsigned no;
       const std::string libelle;
       double prix;
+      static const double PRIX_MINIMAL; 
 };
 
 #endif

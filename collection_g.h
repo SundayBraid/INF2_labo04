@@ -4,6 +4,7 @@
 #include <iostream>
 #include <memory>
 #include <algorithm>
+#include "exceptions.h"
 
 template <typename T, template<typename, typename> class CONTENEUR>
 class Collection;
@@ -39,6 +40,10 @@ size_t Collection<T, CONTENEUR>::taille() const {
 
 template <typename T, template<typename, typename> class CONTENEUR>
 T& Collection<T, CONTENEUR>::get(size_t pos) {
+   if (pos >= taille()) {
+      throw IndiceNonValide("Erreur dans Collection::get :\n"
+                        "n doit etre strictement plus petit que collection.size()");
+   }
    auto i = data.begin();
    for(size_t c = 0; c < pos; ++c, ++i);
    return *i;
