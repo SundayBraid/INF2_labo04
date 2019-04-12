@@ -68,15 +68,24 @@ void Collection<T, CONTENEUR>::parcourir(const UnaryOperator& fonction) {
 template <typename T, template<typename, typename> class CONTENEUR>
 std::ostream& operator<< (std::ostream& os, const Collection<T, CONTENEUR>& c) {
    os << '[';
-   for (auto i = c.data.begin(); i != c.data.end(); ++i) {
-   // std::for_each(c.data.begin(), c.data.end() - 1, [os](const T& i){os << i << ", ";});
-      if (i == --c.data.end()) {
-         os << *i;
-      } else {
-         os << *i << ", ";
+   for(auto i = c.data.begin(); i != c.data.end(); ++i) {
+      os << *i;
+      if (distance(i, c.data.end()) > 1) {
+         os << ", ";
       }
    }
-   return os << ']'; 
+   return os << ']';
+
+   // const T* dernier = &(*(--c.data.end()));
+
+   // os << '[';
+   // for (const T& i : c.data) {
+   //    os << i;
+   //    if (&i != dernier) {
+   //       os << ", ";
+   //    }
+   // }
+   // return os << ']';
 }
 
 #endif
