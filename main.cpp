@@ -79,10 +79,13 @@ int main() {
               << c.contient(p2) << endl
               << noboolalpha;
          {  
-            // < à compléter 1 >
+            auto majorationPrix = [](Produit& p){
+               p.setPrix(p.getPrix() * 1.1); 
+               return p;
+            };
             // On parcourt la collection en majorant le prix de chacun
             // des produits de 10%
-            c.parcourir([](Produit& p){p.setPrix(p.getPrix() * 1.1); return p;});
+            c.parcourir(majorationPrix);
             cout << c << " (taille = " << c.taille() << ")" << endl;      
          }
          c.vider();
