@@ -19,22 +19,30 @@
 #include "produit.h"
 #include "exceptions.h"
 #include <iomanip>
+#include <sstream>
 
 using namespace std;
 
 const double Produit::PRIX_MINIMAL = 0.05;
 
+string Produit::prixNonValide(const char* nomFonction){
+   stringstream os;
+
+   os << "Erreur dans Produit::" << nomFonction << " : " << endl << "le prix doit etre >= " << PRIX_MINIMAL*100.0 << " cts !";
+
+   return os.str(); 
+}
+
 Produit::Produit(unsigned no, const string& libelle, double prix) : no(no) {
    if (prix < PRIX_MINIMAL) {
-      throw PrixNonValide("Erreur dans Produit::Produit :\n"
-                           "le prix doit etre >= 5 cts !");
+      throw PrixNonValide(prixNonValide(__func__));
    }
    (unsigned&) this->no = no;
    this->libelle = libelle;
    this->prix = prix;
 }
 
-Produit&  Produit::operator=(const Produit& produit) {
+Produit& Produit::operator=(const Produit& produit) {
    (unsigned&) this->no = produit.no;
    this->libelle = produit.libelle;
    this->prix = produit.prix;
@@ -43,8 +51,7 @@ Produit&  Produit::operator=(const Produit& produit) {
 
 void Produit::setPrix(double prix) {
    if (prix < PRIX_MINIMAL) {
-      throw PrixNonValide("Erreur dans Produit::Produit :\n"
-                           "le prix doit etre >= 5 cts !");
+      throw PrixNonValide(prixNonValide(__func__));
    }
    this->prix = prix;
 }

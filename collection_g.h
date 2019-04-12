@@ -22,6 +22,7 @@
 #include <iostream>
 #include <memory>
 #include <algorithm>
+#include <sstream>
 #include "exceptions.h"
 
 template <typename T, template<typename, typename> class CONTENEUR>
@@ -44,6 +45,8 @@ class Collection {
       void parcourir(const UnaryOperator& fonction);
    private:
       CONTENEUR<T, std::allocator<T>> data;
+
+      static std::string indiceNonValide(const char* nomFonction);
 };
 
 #include "collection_g_impl.h"

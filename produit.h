@@ -36,6 +36,8 @@ class Produit {
       std::string libelle;
       double prix;
       static const double PRIX_MINIMAL; 
+
+      static std::string prixNonValide(const char* nomFonction); 
 };
 
 #endif
