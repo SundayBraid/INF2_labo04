@@ -7,6 +7,7 @@ class IndiceNonValide : public std::logic_error {
    public:
       explicit IndiceNonValide(const std::string& what_arg) : std::logic_error(what_arg){}
       explicit IndiceNonValide(const char* what_arg) : std::logic_error(what_arg) {}
+
 };
 
 class PrixNonValide : public std::logic_error {

@@ -4,6 +4,7 @@
 #include <iostream>
 #include <memory>
 #include <algorithm>
+#include <sstream>
 #include "exceptions.h"
 
 template <typename T, template<typename, typename> class CONTENEUR>
@@ -26,7 +27,18 @@ class Collection {
       void parcourir(const UnaryOperator& fonction);
    private:
       CONTENEUR<T, std::allocator<T>> data;
+
+      static std::string indiceNonValide(const char* nomFonction);
 };
+template <typename T, template<typename, typename> class CONTENEUR>
+std::string Collection<T,CONTENEUR>::indiceNonValide(const char* nomFonction){
+   std::stringstream os;
+
+   os << "Erreur dans Collection::" << nomFonction << " : " << std::endl << "n doit etre strictement plus petit que collection.size()";
+
+   return os.str(); 
+}
+
 
 template <typename T, template<typename, typename> class CONTENEUR>
 void Collection<T, CONTENEUR>::ajouter(const T& element) {
@@ -41,12 +53,11 @@ size_t Collection<T, CONTENEUR>::taille() const {
 template <typename T, template<typename, typename> class CONTENEUR>
 T& Collection<T, CONTENEUR>::get(size_t pos) {
    if (pos >= taille()) {
-      throw IndiceNonValide("Erreur dans Collection::get :\n"
-                        "n doit etre strictement plus petit que collection.size()");
+      throw IndiceNonValide(indiceNonValide(__func__));
    }
    auto i = data.begin();
    for(size_t c = 0; c < pos; ++c){
-      ++i
+      ++i;
    }
    return *i;
 }
