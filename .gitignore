@@ -5,6 +5,8 @@
 *.dsYM
 .vscode/
 .DS_Store
+.~*
+.directory
 
 # Prerequisites
 *.d

@@ -21,7 +21,8 @@ template <typename T, template<typename, typename> class CONTENEUR>
 std::string Collection<T,CONTENEUR>::indiceNonValide(const char* nomFonction){
    std::stringstream os;
 
-   os << "Erreur dans Collection::" << nomFonction << " : " << std::endl << "n doit etre strictement plus petit que collection.size()";
+   os << "Erreur dans Collection::" << nomFonction << " : " << std::endl 
+      << "n doit etre strictement plus petit que collection.size()";
 
    return os.str(); 
 }
@@ -66,14 +67,11 @@ void Collection<T, CONTENEUR>::parcourir(const UnaryOperator& fonction) {
 
 template <typename T, template<typename, typename> class CONTENEUR>
 std::ostream& operator<< (std::ostream& os, const Collection<T, CONTENEUR>& c) {
-   const T* dernier = &c.data.back();
+   const T& dernier = c.data.back();
 
    os << '[';
    for (const T& i : c.data) {
-      os << i;
-      if (&i != dernier) {
-         os << ", ";
-      }
+      os << i << (&i != &dernier ? "; " : "");
    }
    return os << ']';
 }

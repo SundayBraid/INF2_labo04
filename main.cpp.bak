@@ -20,11 +20,6 @@
 #include "collection_g.h"
 #include "exceptions.h"
 #include "produit.h"
-#include <set>
-#include <array>
-#include <map>
-#include <queue>
-#include <deque>
 
 using namespace std;
 
@@ -34,7 +29,7 @@ int main() {
       cout << "------------------------------------------------------------" << endl;
       cout << "Test sur Collection<char, vector> :" << endl;
       try {
-         Collection<char, set> c;
+         Collection<char, vector> c;
          for (char ch = 'A'; ch < 'D'; ++ch)
             c.ajouter(ch); 
          cout << c << " (taille = " << c.taille() << ")" << endl;
