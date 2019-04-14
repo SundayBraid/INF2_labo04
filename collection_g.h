@@ -8,8 +8,8 @@
  But         : Fournit une classe Collection générique
 
  Remarque(s) : - La classe n'est pas garantie de fonctionner avec tout type
-                 de conteneurs, ils doivent fournir les fonctions utilisées
-                 dans l'implémentation.
+                 de conteneurs, les paramètres génériques doivent être compatibles
+                 et ils doivent fournir les fonctions utilisées dans l'implémentation.
 
  Compilateur : GCC-g++ 7.3.0
                GCC-g++ 8.2.0
@@ -20,7 +20,7 @@
 #define COLLECTION_G_H
 
 #include <iostream>
-#include <memory>
+#include <memory>       // std::allocator
 #include <algorithm>
 #include <sstream>
 #include "exceptions.h"

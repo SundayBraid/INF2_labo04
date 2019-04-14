@@ -71,7 +71,7 @@ std::ostream& operator<< (std::ostream& os, const Collection<T, CONTENEUR>& c) {
 
    os << '[';
    for (const T& i : c.data) {
-      os << i << (&i != &dernier ? "; " : "");
+      os << i << (&i != &dernier ? ", " : "");
    }
    return os << ']';
 }
