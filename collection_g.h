@@ -46,6 +46,7 @@ class Collection {
    private:
       CONTENEUR<T, std::allocator<T>> data;
 
+      // Génère le message d'erreur à l'aide du paramètre nomFonction
       static std::string indiceNonValide(const char* nomFonction);
 };
 

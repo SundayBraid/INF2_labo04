@@ -25,10 +25,12 @@ using namespace std;
 
 const double Produit::PRIX_MINIMAL = 0.05;
 
+// Génère le message d'erreur à afficher à l'aide du paramètre nomFonction
 string Produit::prixNonValide(const char* nomFonction){
+   const double PRIX_EN_CENTIMES = PRIX_MINIMAL * 100.0;
    stringstream os;
 
-   os << "Erreur dans Produit::" << nomFonction << " : " << endl << "le prix doit etre >= " << PRIX_MINIMAL*100.0 << " cts !";
+   os << "Erreur dans Produit::" << nomFonction << " : " << endl << "le prix doit etre >= " << PRIX_EN_CENTIMES << " cts !";
 
    return os.str(); 
 }
