@@ -37,6 +37,7 @@ class Produit {
       double prix;
       static const double PRIX_MINIMAL; 
 
+      // Génère le message d'erreur à afficher à l'aide du paramètre nomFonction
       static std::string prixNonValide(const char* nomFonction); 
 };
 

@@ -17,6 +17,7 @@
 #ifndef COLLECTION_G_IMPL_H
 #define COLLECTION_G_IMPL_H
 
+// Génère le message d'erreur à afficher à l'aide du paramètre nomFonction
 template <typename T, template<typename, typename> class CONTENEUR>
 std::string Collection<T,CONTENEUR>::indiceNonValide(const char* nomFonction){
    std::stringstream os;
