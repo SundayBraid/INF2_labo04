@@ -1,3 +1,3 @@
 # INF2_labo04
-le meilleur des labo
+le pire des labos -> NON ! Inutilement compliqué ! Usine à gaz !
 Groupe 7
